@@ -1,5 +1,5 @@
-class Parent:
-    def is_magical_prime(self, num):
+class A:
+    def is_magicalprime(self, num):
         if num < 2:
             return False
         if num == 2:
@@ -13,12 +13,12 @@ class Parent:
             i += 2
         return True
 
-class A(Parent):
+class B(A):
     def is_neon(self, num):
         num_square = num * num
         return sum(int(digit) for digit in str(num_square)) == num
 
-class B(Parent):
+class C(A):
     def print_name_in_x(self, name):
         length = len(name)
         for i in range(length):
@@ -29,11 +29,11 @@ class B(Parent):
                     print(" ", end="")
             print()
 
-class C(Parent):
+class D(A):
     def reverse_string(self, s):
         return s[::-1]
 
-class D(A, B):
+class E(B, C):
     def __init__(self):
         self.pin = None
         self.balance = 0
@@ -60,7 +60,7 @@ class D(A, B):
     def is_valid_pin(self, pin):
         return self.pin == pin
 
-    def interactive_atm(self):
+    def atm_system(self):
         print("Welcome to the ATM!")
         pin = int(input("Please enter your PIN: "))
         if not self.is_valid_pin(pin):
@@ -89,13 +89,13 @@ class D(A, B):
             else:
                 print("Invalid option. Please try again.")
 
-# Example usage
+
+e = E()
 d = D()
-c = C()
-d.set_pin(1234)
-d.interactive_atm()
-print(d.is_magical_prime(5))
-print(d.is_neon(9))
-d.print_name_in_x("yuvaraj")
-s = "royal challengers bengaluru"
-print(c.reverse_string(s))
+e.set_pin(123456)
+e.atm_system()
+print(e.is_magicalprime(5))
+print(e.is_neon(9))
+e.print_name_in_x("yuvarajkumar")
+s = "r o y a l    c h a l l e n g e r s    b e n g a l u r u"
+print(d.reverse_string(s))
